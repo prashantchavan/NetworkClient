@@ -29,17 +29,14 @@
         private void InitializeComponent()
         {
             this.SrvDetails = new System.Windows.Forms.GroupBox();
-            this.txtServerAddress = new System.Windows.Forms.TextBox();
-            this.txtServerPort = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtMessages = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
+            this.txtMessage = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtLog = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblConnectionDetails = new System.Windows.Forms.Label();
             this.SrvDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -48,30 +45,13 @@
             // 
             // SrvDetails
             // 
-            this.SrvDetails.Controls.Add(this.label2);
-            this.SrvDetails.Controls.Add(this.label1);
-            this.SrvDetails.Controls.Add(this.txtServerPort);
-            this.SrvDetails.Controls.Add(this.txtServerAddress);
+            this.SrvDetails.Controls.Add(this.lblConnectionDetails);
             this.SrvDetails.Location = new System.Drawing.Point(13, 13);
             this.SrvDetails.Name = "SrvDetails";
             this.SrvDetails.Size = new System.Drawing.Size(259, 58);
             this.SrvDetails.TabIndex = 0;
             this.SrvDetails.TabStop = false;
-            this.SrvDetails.Text = "Server Details";
-            // 
-            // txtServerAddress
-            // 
-            this.txtServerAddress.Location = new System.Drawing.Point(7, 32);
-            this.txtServerAddress.Name = "txtServerAddress";
-            this.txtServerAddress.Size = new System.Drawing.Size(158, 20);
-            this.txtServerAddress.TabIndex = 0;
-            // 
-            // txtServerPort
-            // 
-            this.txtServerPort.Location = new System.Drawing.Point(180, 32);
-            this.txtServerPort.Name = "txtServerPort";
-            this.txtServerPort.Size = new System.Drawing.Size(73, 20);
-            this.txtServerPort.TabIndex = 1;
+            this.SrvDetails.Text = "Server Connection Details";
             // 
             // groupBox1
             // 
@@ -103,13 +83,6 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
-            // txtMessage
-            // 
-            this.txtMessage.Location = new System.Drawing.Point(7, 17);
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(191, 20);
-            this.txtMessage.TabIndex = 0;
-            // 
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -119,6 +92,14 @@
             this.btnSend.TabIndex = 1;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // txtMessage
+            // 
+            this.txtMessage.Location = new System.Drawing.Point(7, 17);
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.Size = new System.Drawing.Size(191, 20);
+            this.txtMessage.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -139,25 +120,16 @@
             this.txtLog.Size = new System.Drawing.Size(246, 85);
             this.txtLog.TabIndex = 0;
             // 
-            // label1
+            // lblConnectionDetails
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Address";
+            this.lblConnectionDetails.AutoSize = true;
+            this.lblConnectionDetails.Location = new System.Drawing.Point(6, 19);
+            this.lblConnectionDetails.Name = "lblConnectionDetails";
+            this.lblConnectionDetails.Size = new System.Drawing.Size(110, 13);
+            this.lblConnectionDetails.TabIndex = 0;
+            this.lblConnectionDetails.Text = "Server not connected";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(180, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Port";
-            // 
-            // Form1
+            // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,8 +138,9 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SrvDetails);
-            this.Name = "Form1";
+            this.Name = "GUI";
             this.Text = "Client";
+            this.Load += new System.EventHandler(this.GUI_Load);
             this.SrvDetails.ResumeLayout(false);
             this.SrvDetails.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -183,8 +156,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox SrvDetails;
-        private System.Windows.Forms.TextBox txtServerPort;
-        private System.Windows.Forms.TextBox txtServerAddress;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtMessages;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -192,8 +163,7 @@
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtLog;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblConnectionDetails;
     }
 }
 
